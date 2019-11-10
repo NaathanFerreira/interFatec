@@ -1,0 +1,73 @@
+@using Inter2.Models
+@model List<Produto>
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<style>
+
+    .content-table 
+    {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        min-width: 800px;
+        border-radius: 15px 15px ;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(10, 0, 0, 0.25);
+        
+    }
+
+    .content-table thead tr
+    {
+       background-color: #363636;
+       color: #ffffff;
+       text-align: left;
+       font-weight: bold;
+    }
+
+    .content-table th,
+    .content-table td
+    {
+        padding: 12px 15px;      
+    }
+
+    .content-table tbody tr
+    {
+        border-bottom: 1px solid #dddddd;
+    }
+
+  
+</style>
+
+
+    <table class="content-table">
+        <thead>
+            <tr>
+                <th> Id </th>
+                <th> Nome </th>
+                <th> Preço </th>
+                <th> Descrição </th>
+                <th> Disponíveis </th>
+                <th>  </th>
+                
+            </tr>
+        </thead>
+
+        @foreach (var p in Model)
+        {
+        <tr>
+            <td>@p.Id</td>
+            <td>@p.Nome</td>
+            <td>@p.Preco</td>
+            <td>@p.Descricao</td>
+            <td>@p.QuantidadeEstoque</td>
+            <td>
+                <a class="btn btn-sm btn-danger"  href="/produto/delete/@p.Id">Apagar</a>
+                <a class="btn btn-sm btn-warning"  href="/produto/update/@p.Id">Editar</a>
+            </td>
+        </tr>
+        }
+    </table>
+
+    <a class="btn btn-sm btn-dark" href="/produto/create">Adicionar</a>
