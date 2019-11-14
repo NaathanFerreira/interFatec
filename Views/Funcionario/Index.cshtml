@@ -1,0 +1,31 @@
+@using Inter2.Models
+@model List<Funcionario>
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+    
+
+<html>
+    <head>
+        <title>Lista de Funcionarios</title>
+    </head>
+    <body>
+        <table class="table table-hover">
+            @foreach(var funcionario in Model)
+            {
+                <tr>
+                    <td>@funcionario.Id</td>
+                    <td>@funcionario.Nome</td>
+                    <td>@funcionario.Email</td>
+                    <td>@funcionario.Cpf</td>
+                    <td>@funcionario.AnosExperiencia</td>
+                    <td>
+                        <a class="btn btn-sm btn-danger" href="/funcionario/delete/@funcionario.Id">Apagar</a>
+                        <a class="btn btn-sm btn-warning" href="/funcionario/update/@funcionario.Id">Editar</a>
+                    </td>
+                </tr>
+            }
+        </table>
+        <a class="btn btn-primary" href="/funcionario/create">Adicionar</a>
+    </body>
+</html>

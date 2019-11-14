@@ -1,0 +1,33 @@
+@using Inter2.Models
+@model Funcionario
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<form asp-controller="Funcionario" asp-action="Update" method="POST">
+    <div =class="form-group">
+        <label>Nome</label>
+        <input asp-for="Nome" class="form-control" />
+        <span asp-validation-for="Nome"></span>
+    </div>
+    <div =class="form-group">
+        <label>Email</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div =class="form-group">
+        <label>Cpf</label>
+        <input asp-for="Cpf" class="form-control" />
+        <span asp-validation-for="Cpf"></span>
+    </div>
+    <div =class="form-group">
+        <label>Anos de Experiencia</label>
+        <input asp-for="AnosExperiencia" class="form-control" />
+        <span asp-validation-for="AnosExperiencia"></span>
+    </div>
+
+    <button class="btn btn-primary">Salvar</button>
+</form>
