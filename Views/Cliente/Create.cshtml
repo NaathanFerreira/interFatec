@@ -1,11 +1,11 @@
 @using Inter2.Models
-@model Funcionario
+@model Cliente
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<form asp-controller="Funcionario" asp-action="Create" method="POST">
+<form asp-controller="Cliente" asp-action="Create" method="POST">
     <div =class="form-group">
         <label>Nome</label>
         <input asp-for="Nome" class="form-control" />
@@ -22,11 +22,10 @@
         <span asp-validation-for="Cpf"></span>
     </div>
     <div =class="form-group">
-        <label>Anos de Experiencia</label>
-        <input asp-for="AnosExperiencia" class="form-control" />
-        <span asp-validation-for="AnosExperiencia"></span>
+        <label>Endereço</label>
+        <input asp-for="Endereco" class="form-control" />
+        <span asp-validation-for="Endereco"></span>
     </div>
 
     <button class="btn btn-sm btn-dark">Salvar</button>
-
 </form>

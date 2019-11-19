@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Nathan\\Desktop\\inter\\Inter2.1 - Copia\\Inter2.csproj": {}
+    "C:\\Users\\Nathan\\Desktop\\inter\\inter 2.2\\Inter2.2\\Inter2.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Nathan\\Desktop\\inter\\Inter2.1 - Copia\\Inter2.csproj": {
+    "C:\\Users\\Nathan\\Desktop\\inter\\inter 2.2\\Inter2.2\\Inter2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Nathan\\Desktop\\inter\\Inter2.1 - Copia\\Inter2.csproj",
+        "projectUniqueName": "C:\\Users\\Nathan\\Desktop\\inter\\inter 2.2\\Inter2.2\\Inter2.csproj",
         "projectName": "Inter2",
-        "projectPath": "C:\\Users\\Nathan\\Desktop\\inter\\Inter2.1 - Copia\\Inter2.csproj",
+        "projectPath": "C:\\Users\\Nathan\\Desktop\\inter\\inter 2.2\\Inter2.2\\Inter2.csproj",
         "packagesPath": "C:\\Users\\Nathan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Nathan\\Desktop\\inter\\Inter2.1 - Copia\\obj\\",
+        "outputPath": "C:\\Users\\Nathan\\Desktop\\inter\\inter 2.2\\Inter2.2\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

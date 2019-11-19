@@ -1,19 +1,16 @@
 @using Inter2.Models
-@model List<Funcionario>
+@model List<Cliente>
 @{
     Layout = "~/Views/Shared/Layout.cshtml";
 }
     
 
 <html>
-
-
     <head>
-        <title>Lista de Funcionarios</title>
+        <title>Lista de Cliente</title>
     </head>
+ <style>
 
-
-<style>
     .content-table 
     {
         border-collapse: collapse;
@@ -47,7 +44,7 @@
     }
 
   
-</style>
+</style>   
  <body>
 
 
@@ -56,30 +53,30 @@
             <tr>
                 <th> Id </th>
                 <th> Nome </th>
-                <th> Email </th>
+                <th> Email</th>
                 <th> CPF </th>
-                <th> Anos de experiência </th>
+                <th> Endereço </th>
                 <th>  </th>
                 
             </tr>
         </thead>
-            
-            @foreach(var funcionario in Model)
+
+            @foreach(var cliente in Model)
             {
                 <tr>
-                    <td>@funcionario.Id</td>
-                    <td>@funcionario.Nome</td>
-                    <td>@funcionario.Email</td>
-                    <td>@funcionario.Cpf</td>
-                    <td>@funcionario.AnosExperiencia</td>
+                    <td>@cliente.Id</td>
+                    <td>@cliente.Nome</td>
+                    <td>@cliente.Email</td>
+                    <td>@cliente.Cpf</td>
+                    <td>@cliente.Endereco</td>
                     <td>
-                        <a class="btn btn-sm btn-danger" href="/funcionario/delete/@funcionario.Id">Apagar</a>
-                        <a class="btn btn-sm btn-warning" href="/funcionario/update/@funcionario.Id">Editar</a>
+                        <a class="btn btn-sm btn-danger"  href="/cliente/delete/@cliente.Id">Apagar</a>
+                        <a class="btn btn-sm btn-warning"  href="/cliente/update/@cliente.Id">Editar</a>
                     </td>
                 </tr>
             }
         </table>
-        <a class="btn btn-sm btn-dark" href="/funcionario/create">Adicionar</a>
+        <a class="btn btn-sm btn-dark" href="/cliente/create">Adicionar</a>
  
  
  </body>
