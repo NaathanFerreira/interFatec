@@ -12,6 +12,7 @@ namespace Inter2.Data
             string strConn = @"Data Source=localhost;
                                 Initial Catalog=OrcamentoDigital;
                                 Integrated Security=true";
+        
                                 // User Id=sa; Password=dba;
 
             connection = new SqlConnection(strConn);

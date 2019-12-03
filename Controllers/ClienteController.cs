@@ -1,6 +1,9 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using Inter2.Data;
 using Inter2.Models;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace Inter2.Controllers
 {
@@ -12,7 +15,19 @@ namespace Inter2.Controllers
                 return View(data.Read());            
         }
         //-------------------------------------------------
+        /*Retorna todos os clientes por json*/
+        /*public String ViewCli()
+        {
+            List<Cliente> clientes = new List<Cliente>();
 
+            using (var data = new ClienteData())
+            {
+                clientes = data.Read();
+            }
+            string json = JsonConvert.SerializeObject(clientes);
+        
+            return json;
+        }*/
         public IActionResult Create()
         {
             return View();
@@ -45,7 +60,7 @@ namespace Inter2.Controllers
         [HttpPost]
         public IActionResult Update(int id, Cliente e)
         {
-            e.Id = id;
+            e.IdCliente = id;
             if(!ModelState.IsValid)
                 return View(e);
 

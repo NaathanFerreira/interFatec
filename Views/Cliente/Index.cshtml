@@ -3,81 +3,71 @@
 @{
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-    
-
-<html>
-    <head>
-        <title>Lista de Cliente</title>
-    </head>
- <style>
-
+<style>
     .content-table 
-    {
-        border-collapse: collapse;
-        margin: 25px 0;
-        font-size: 0.9em;
-        min-width: 800px;
-        border-radius: 15px 15px ;
-        overflow: hidden;
-        box-shadow: 0 0 20px rgba(10, 0, 0, 0.25);
-        
-    }
+{
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    border-radius: 15px 15px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(10, 0, 0, 0.25);
+    
+}
 
-    .content-table thead tr
-    {
-       background-color: #363636;
-       color: #ffffff;
-       text-align: left;
-       font-weight: bold;
-       font-family: 'Arial';
-    }
+.content-table thead tr
+{
+    background-color: #363636;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+    font-family: 'Arial';
+}
 
-    .content-table th,
-    .content-table td
-    {
-        padding: 12px 15px;      
-    }
+.content-table th,
+.content-table td
+{
+    padding: 12px 15px;      
+}
 
-    .content-table tbody tr
-    {
-        border-bottom: 1px solid #dddddd;
-    }
+.content-table tbody tr
+{
+    border-bottom: 1px solid #dddddd;
+}
 
-  
-</style>   
- <body>
+</style>
 
-
-         <table class="content-table">
+<section class="col-md-12 mt-2">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 border-bottom">
+        <h6><i class="fas fa-users"></i>&nbsp;&nbsp;<span>Registrar Cliente</span></h6>
+    </div>
+    <a class="btn btn-sm btn-success mt-4" href="/cliente/create"><i class="fas fa-plus-circle"></i>&nbsp;Adicionar</a>
+    <table class="table content-table">
         <thead>
             <tr>
-                <th> Id </th>
-                <th> Nome </th>
-                <th> Email</th>
-                <th> CPF </th>
-                <th> Endereço </th>
-                <th>  </th>
-                
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>CPF</th>
+                <th>Endereço</th>
+                <th>Opções</th>
             </tr>
         </thead>
-
+        <tbody>
             @foreach(var cliente in Model)
             {
                 <tr>
-                    <td>@cliente.Id</td>
+                    <td>@cliente.IdCliente</td>
                     <td>@cliente.Nome</td>
                     <td>@cliente.Email</td>
                     <td>@cliente.Cpf</td>
                     <td>@cliente.Endereco</td>
                     <td>
-                        <a class="btn btn-sm btn-danger"  href="/cliente/delete/@cliente.Id">Apagar</a>
-                        <a class="btn btn-sm btn-warning"  href="/cliente/update/@cliente.Id">Editar</a>
+                        <a class="btn btn-sm btn-danger"  href="/cliente/delete/@cliente.IdCliente"><i class="fas fa-trash-alt"></i>&nbsp;Apagar</a>
+                        <a class="btn btn-sm btn-warning text-white"  href="/cliente/update/@cliente.IdCliente"><i class="fas fa-edit"></i>&nbsp;Editar</a>
                     </td>
                 </tr>
             }
-        </table>
-        <a class="btn btn-sm btn-dark" href="/cliente/create">Adicionar</a>
- 
- 
- </body>
-</html>
+        </tbody>
+    </table>
+</section>

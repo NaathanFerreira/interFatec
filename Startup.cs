@@ -21,7 +21,7 @@ namespace Inter2
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
            app.UseMvc(options => {
-             options.MapRoute("default","{controller=Home}/{action=Index}/{id?}");
+             options.MapRoute("default","{controller=Dashboard}/{action=Index}/{id?}");
            });
         }
     }

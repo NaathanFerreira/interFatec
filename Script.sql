@@ -14,13 +14,6 @@ create table Produtos
 )
 go
 
-insert into Produtos values ('Câmera', 100, 'Sensor noturno', 500)
-insert into Produtos values ('Sensor Laser', 250, 'Sensor de movimento', 1200)
-
-select * from Produtos
-
------------------------------------------------------------------
-
 create table Pessoas
 (
 	id int primary key identity,
@@ -42,4 +35,67 @@ create table Funcionarios
 	id_Pessoas int primary key references Pessoas,
 	anosExperiencia int not null
 )
+go
+
+---------------------------------------------------
+create View v_funcionarios
+AS
+select id, nome, email, cpf, anosExperiencia
+from Pessoas p, Funcionarios f
+where p.id = f.id_Pessoas
+go
+
+
+create View v_clientes
+AS
+select id, nome, email, cpf, endereco
+from Pessoas p, Clientes c
+where p.id = c.id_Pessoa
+go
+-----------------------------------------------------
+create procedure cadastroCliente
+(
+	@nome varchar(50),
+	@email varchar(50),
+	@cpf varchar(50),
+	@endereco varchar(200)
+)
+as
+begin
+	begin try
+		begin tran
+			insert into Pessoas values  (@nome, @email, @cpf)
+			insert into clientes values (@@IDENTITY, @endereco)
+		commit
+		return 0 -- sem problemas
+	end try
+	begin catch
+		rollback
+		return 1 --problemas
+	end catch
+end -- fim da procedure
+go
+
+
+create procedure cadastroFuncionario
+(
+	@nome varchar(50),
+	@email varchar(50),
+	@cpf varchar(50),
+	@anosExperiencia varchar(200)
+)
+as
+begin
+	begin try
+		begin tran
+			insert into Pessoas values  (@nome, @email, @cpf)
+			insert into clientes values (@@IDENTITY, @anosExperiencia)
+		commit
+		return 0 -- sem problemas
+	end try
+	begin catch
+		rollback
+		return 1 --problemas
+	end catch
+end -- fim da procedure
 go

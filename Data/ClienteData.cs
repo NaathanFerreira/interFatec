@@ -21,7 +21,7 @@ namespace Inter2.Data
             while(reader.Read())
             {
                 Cliente c = new Cliente();
-                c.Id = (int)reader["id"];
+                c.IdCliente = (int)reader["id"];
                 c.Nome = (string)reader["nome"];
                 c.Email = (string)reader["email"];
                 c.Cpf = (string)reader["cpf"];
@@ -68,7 +68,7 @@ namespace Inter2.Data
              if(reader.Read())
              {
                  c = new Cliente{
-                     Id = (int)reader["id"],
+                     IdCliente = (int)reader["id"],
                      Nome = (string)reader["nome"],
                      Email = (string)reader["email"],
                      Cpf = (string)reader["cpf"],
@@ -88,7 +88,7 @@ namespace Inter2.Data
             cmd.Parameters.AddWithValue("@email", e.Email);
             cmd.Parameters.AddWithValue("@cpf", e.Cpf);
             cmd.Parameters.AddWithValue("@endereco", e.Endereco);
-            cmd.Parameters.AddWithValue("@id", e.Id);
+            cmd.Parameters.AddWithValue("@id", e.IdCliente);
             cmd.ExecuteNonQuery();
          }
     }

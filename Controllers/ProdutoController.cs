@@ -1,8 +1,10 @@
+using System;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Inter2.Models;
 using Inter2.Data;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace Inter2.Controllers
 {
@@ -12,6 +14,18 @@ namespace Inter2.Controllers
         {
             using(var data = new ProdutoData())
                 return View(data.Read());            
+        }
+        public String ViewTable()
+        {
+            List<Produto> lista = new List<Produto>();
+
+            using (var data = new ProdutoData())
+            {
+                lista = data.Read();
+            }
+            string json = JsonConvert.SerializeObject(lista);
+
+            return json;
         }
 
         public IActionResult Create()

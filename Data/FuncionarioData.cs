@@ -20,7 +20,7 @@ namespace Inter2.Data
             while(reader.Read())
             {
                 Funcionario func = new Funcionario();
-                func.Id = (int)reader["id"];
+                func.IdFuncionario = (int)reader["id"];
                 func.Nome = (string)reader["nome"];
                 func.Email = (string)reader["email"];
                 func.Cpf = (string)reader["cpf"];
@@ -69,7 +69,7 @@ namespace Inter2.Data
             if(reader.Read())
             {
                 f = new Funcionario{
-                    Id = (int)reader["id"],
+                    IdFuncionario = (int)reader["id"],
                     Nome = (string)reader["nome"],
                     Email = (string)reader["email"],
                     Cpf = (string)reader["cpf"],
@@ -78,7 +78,6 @@ namespace Inter2.Data
             }
             return f;
         }
-
         //--------------------------------------------------------------------
 
         public void Update(Funcionario e)
@@ -91,7 +90,7 @@ namespace Inter2.Data
             cmd.Parameters.AddWithValue("@email", e.Email);
             cmd.Parameters.AddWithValue("@cpf", e.Cpf);
             cmd.Parameters.AddWithValue("@anosExperiencia", e.AnosExperiencia);
-            cmd.Parameters.AddWithValue("@id", e.Id);
+            cmd.Parameters.AddWithValue("@id", e.IdFuncionario);
             cmd.ExecuteNonQuery();
         }
     }
